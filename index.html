@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+    background: #ffe6f0;
+}
+
+/* FIRST PAGE */
+#firstPage {
+    padding-top: 120px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yesBtn { background: #28a745; color: white; }
+#noBtn  { background: #dc3545; color: white; position: absolute; }
+
+/* SECOND PAGE */
+#secondPage {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url('roopa.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+/* OVERLAY */
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXT BOX */
+.textBox {
+    max-width: 720px;
+    padding: 25px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 15px;
+
+    color: #fff8fb;
+    line-height: 1.8;
+    font-size: clamp(18px,2.2vw,24px);
+    text-shadow: 1px 1px 3px black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+<div id="firstPage">
+    <h1 style="font-size:32px;">Dr. Roopa Ghode 💕</h1>
+    <h2 style="font-size:24px;">Will You Be My Valentine?</h2>
+
+    <button id="yesBtn" onclick="showSecond()">YES</button>
+    <button id="noBtn" onmouseover="moveNo()">NO</button>
+</div>
+
+<!-- SECOND SCREEN -->
+<div id="secondPage">
+  <div class="overlay">
+    <div class="textBox">
+      <h1 style="color:#ffc0cb;">Dr. Roopa Ghode ❤️</h1>
+
+You make my days brighter, my smile wider, and my heart happier. Every moment with you feels special. I’m truly lucky to have you in my life. 💖
+<br><br>
+The past may have been difficult, but these years of talking again reminded me how meaningful you are to me. Some connections never truly fade. ✨
+<br><br>
+I don’t want to rush anything… I just want to spend a few beautiful moments with you, genuine conversations, real smiles, and memories we will never regret. 🌸
+<br><br>
+You will always have a special place in my heart. Being around you makes my world feel warmer and more alive. 🌈
+<br><br>
+<strong style="color:#ffd700;">
+So today, with honesty and respect… Will you be my Valentine once again? 💐
+</strong>
+
+    </div>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="rehna_hai_tere_dil_mein.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function moveNo() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    btn.style.top  = Math.random() * (window.innerHeight - 120) + "px";
+}
+
+function showSecond() {
+    document.getElementById("firstPage").style.display = "none";
+    document.getElementById("secondPage").style.display = "block";
+
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.5;  // softer volume
+    music.play();
+}
+</script>
+
+</body>
+</html>
